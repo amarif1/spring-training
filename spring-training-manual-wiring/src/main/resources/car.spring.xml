@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Budget Car Bean Definition -->
+	<bean id="budgetCar" class="com.flytxt.training.car.Car">
+
+		<!-- Primitive Injection -->
+		<property name="color" value="White" />
+
+		<!-- Bean Injection -->
+		<property name="engine" ref="petrolEngine" />
+		<property name="transmission" ref="manualTransmission" />
+		<property name="wheel" ref="stockWheel" />
+		<property name="seat" ref="resinSeat" />
+	</bean>
+
+	<!-- Bean Definitions -->
+	<bean id="petrolEngine" class="com.flytxt.training.car.internals.engine.impl.PetrolEngine" />
+
+	<bean id="manualTransmission" class="com.flytxt.training.car.internals.transmission.impl.ManualTransmission" />
+
+	<bean id="stockWheel" class="com.flytxt.training.car.externals.wheel.impl.StockWheel" />
+
+	<bean id="resinSeat" class="com.flytxt.training.car.externals.seat.impl.ResinSeat" />
+	
+	
+	<!-- Premium Car Bean Definition -->
+	<bean id="premiumCar" class="com.flytxt.training.car.Car">
+
+		<!-- Primitive Injection -->
+		<property name="color" value="Black" />
+
+		<!-- Bean Injection -->
+		<property name="engine" ref="dieselEngine" />
+		<property name="transmission" ref="automaticTransmission" />
+		<property name="wheel" ref="alloyWheel" />
+		<property name="seat" ref="leatherSeat" />
+	</bean>
+
+	<!-- Bean Definitions -->
+	<bean id="dieselEngine" class="com.flytxt.training.car.internals.engine.impl.DieselEngine" />
+
+	<bean id="automaticTransmission" class="com.flytxt.training.car.internals.transmission.impl.AutomaticTransmission" />
+
+	<bean id="alloyWheel" class="com.flytxt.training.car.externals.wheel.impl.AlloyWheel" />
+
+	<bean id="leatherSeat" class="com.flytxt.training.car.externals.seat.impl.LeatherSeat" />
+	
+</beans>
